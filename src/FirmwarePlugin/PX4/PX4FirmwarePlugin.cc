@@ -57,6 +57,12 @@ PX4FirmwarePlugin::PX4FirmwarePlugin()
     const QString followMeFlightModeName = tr("Follow Me");
     const QString simpleFlightModeName = tr("Simple");
     const QString orbitFlightModeName = tr("Orbit");
+    // CUSTOM PRISMA MARINE
+    const QString marineMission = tr("Marine Mission");
+    const QString marineManual = tr("Marine Manual");
+    const QString MarineManualTs = tr("Marine Manual TS");
+    const QString marineManualFf = tr("Marine Manual FF");
+    // END CUSTOM
 
     _setModeEnumToModeStringMapping({
         { PX4CustomMode::MANUAL,        manualFlightModeName      },
@@ -76,6 +82,12 @@ PX4FirmwarePlugin::PX4FirmwarePlugin()
         { PX4CustomMode::AUTO_READY,    readyFlightModeName       },
         { PX4CustomMode::AUTO_RTGS,     rtgsFlightModeName        },
         { PX4CustomMode::AUTO_TAKEOFF,  takeoffFlightModeName     },
+        // CUSTOM PRISMA MARINE
+        { PX4CustomMode::PRISMA_AUTO_MARINE,  marineMission       },
+        { PX4CustomMode::PRISMA_MARINE_MANUAL,  marineManual      },
+        { PX4CustomMode::PRISMA_MARINE_MANUAL_TS,  MarineManualTs },   
+        { PX4CustomMode::PRISMA_MARINE_MANUAL_FF,  marineManualFf },
+        // END CUSTOM
     });
 
     static FlightModeList availableFlightModes = {
@@ -97,6 +109,12 @@ PX4FirmwarePlugin::PX4FirmwarePlugin()
         { readyFlightModeName,      PX4CustomMode::AUTO_READY,      false,  false},
         { rtgsFlightModeName,       PX4CustomMode::AUTO_RTGS,       false,  false},
         { takeoffFlightModeName,    PX4CustomMode::AUTO_TAKEOFF,    false,  false},
+        // CUSTOM PRISMA MARINE
+        { marineMission,            PX4CustomMode::PRISMA_AUTO_MARINE,   true,   true },
+        { marineManual,             PX4CustomMode::PRISMA_MARINE_MANUAL, true,   true },
+        { MarineManualTs,           PX4CustomMode::PRISMA_MARINE_MANUAL_TS, true,   true },
+        { marineManualFf,           PX4CustomMode::PRISMA_MARINE_MANUAL_FF, true,   true },
+        // END CUSTOM
     };
 
     updateAvailableFlightModes(availableFlightModes);
